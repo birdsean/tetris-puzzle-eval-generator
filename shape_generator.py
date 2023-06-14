@@ -8,14 +8,24 @@ import random
 MAX_SHAPE_SIZE = 4
 
 seed_shapes = [
-    'AAAA',
-    'A\nAAA',
-    '  A\nAAA',
-    'AA\nAA',
-    'A\nAA\nA',
-    ' AA\nAA',
-    'AA\n AA',
+    'XXXX',
+    'X\nXXX',
+    '  X\nXXX',
+    'XX\nXX',
+    'X\nXX\nX',
+    ' XX\nXX',
+    'XX\n XX',
 ]
+
+def generate_shapes():
+    possible_shapes = set()
+
+    for shape in seed_shapes:
+        possible_shapes.add(shape)
+        for i in range(4):
+            possible_shapes.add(spin_shape(shape, i))
+
+    return dedup_shapes(possible_shapes)
 
 # pick a random seed shape
 def pick_seed_shape():
@@ -91,14 +101,3 @@ def dedup_shapes(shapes):
         if not is_dupe:
             deduped_shapes.append(shape)
     return deduped_shapes
-
-possible_shapes = set()
-
-for shape in seed_shapes:
-    possible_shapes.add(shape)
-    for i in range(4):
-        possible_shapes.add(spin_shape(shape, i))
-
-deduped_shapes = dedup_shapes(possible_shapes)
-
-print(f'Number of shapes: {len(deduped_shapes)}')
