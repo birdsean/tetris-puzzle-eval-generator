@@ -10,7 +10,7 @@ MAX_SHAPE_SIZE = 4
 seed_shapes = [
     'AAAA',
     'A\nAAA',
-    'AAA\n  A',
+    '  A\nAAA',
     'AA\nAA',
     'A\nAA\nA',
     ' AA\nAA',
@@ -66,6 +66,32 @@ def spin_shape(shape, rotations):
     shape = '\n'.join(shape)
     return shape
 
+def shape_to_coords(shape):
+    shape = shape.split('\n')
+    coords = []
+    for i in range(len(shape)):
+        for j in range(len(shape[i])):
+            if shape[i][j] != ' ':
+                coords.append((i, j))
+    return coords
+
+def dedup_shapes(shapes):
+    deduped_shapes = []
+    for shape in shapes:
+        # convert shape to coords in 2d array
+        coords = shape_to_coords(shape)
+        
+        # compare shape to all other shapes
+        is_dupe = False
+        for deduped_shape in deduped_shapes:
+            deduped_coords = shape_to_coords(deduped_shape)
+            if set(coords) == set(deduped_coords):
+                is_dupe = True
+                break
+        if not is_dupe:
+            deduped_shapes.append(shape)
+    return deduped_shapes
+
 possible_shapes = set()
 
 for shape in seed_shapes:
@@ -73,6 +99,6 @@ for shape in seed_shapes:
     for i in range(4):
         possible_shapes.add(spin_shape(shape, i))
 
-for shape in sorted(possible_shapes):
-    print(shape)
-    print()
+deduped_shapes = dedup_shapes(possible_shapes)
+
+print(f'Number of shapes: {len(deduped_shapes)}')
