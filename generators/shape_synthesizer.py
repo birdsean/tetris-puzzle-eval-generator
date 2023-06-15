@@ -1,5 +1,3 @@
-import random
-
 def convert_shape_to_2d_array(shape):
     coord_shape = shape.split('\n')
     for i in range(len(coord_shape)):
@@ -66,15 +64,6 @@ def concat_shape_arrays(shape1, shape2):
         final_shape[coord[0]][coord[1]] = 'X'
 
     return final_shape
-
-def print_results(shape1, shape2, final):
-    print(shape1)
-    print('+')
-    print(shape2)
-    print('=')
-    print(final)
-    print('\n\n')
-    print("***********************")
 
 def generate_shape_combinations(shape1, shape2):
     # CONVERT shape1 into 2d array
