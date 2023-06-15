@@ -25,7 +25,7 @@ for i in range(COUNT_QUESTIONS):
                 coords.append((i, j))
 
     # pick a random coord
-    coord = coords[random.randint(0, len(coords) - 1)]
+    rand_coord = coords[random.randint(0, len(coords) - 1)]
 
     # append shape2 to shape1 at that coord
     final_shape = coord_shape
@@ -39,7 +39,7 @@ for i in range(COUNT_QUESTIONS):
     for i in range(len(coord_shape2)):
         for j in range(len(coord_shape2[i])):
             if coord_shape2[i][j] != ' ':
-                final_shape[coord[0] + i][coord[1] + j] = coord_shape2[i][j]
+                final_shape[rand_coord[0] + i][rand_coord[1] + j] = coord_shape2[i][j]
     
     # convert final shape to string
     final_shape_str = ''
