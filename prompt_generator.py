@@ -35,8 +35,6 @@ Please create:
 {goal}
 
 Replacing the 'X's with the corresponding letter of the shape that should occupy each position. Only respond with the final shape, no commentary.
-
-Answer:
 {answer}'''
 
 prompt = gen_prompt([
