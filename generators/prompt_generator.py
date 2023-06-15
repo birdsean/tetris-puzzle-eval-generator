@@ -14,22 +14,25 @@ def gen_prompt(shapes: list[str], goal: str, answer: str):
 
 Given shapes:
 
-AAAA
+ A
+AA
+A
 
-BBB
-  B
+B
+BB
+ B
 
 Please create:
 
+ XX
 XXXX
- XXX
-   X
+X  X
 
 Answer:
 
-AAAA
- BBB
-   B
+ AB
+AABB
+A  B
 
 
 Now it's your turn.
