@@ -1,5 +1,4 @@
 import random
-import shape_generator
 
 def convert_shape_to_2d_array(shape):
     coord_shape = shape.split('\n')
@@ -77,10 +76,7 @@ def print_results(shape1, shape2, final):
     print('\n\n')
     print("***********************")
 
-shapes = shape_generator.generate_shapes()
-COUNT_QUESTIONS = 2
-for i in range(COUNT_QUESTIONS):
-    # pick a random shape
+def generate_shape_combinations(shape1, shape2):
     shape1 = shapes[random.randint(0, len(shapes) - 1)]
 
     # pick a second shape that is not the same as the first
@@ -95,9 +91,4 @@ for i in range(COUNT_QUESTIONS):
     border1 = get_border_points(coord_shape)
     border2 = get_border_points(coord_shape2)
 
-    final1 = convert_points_to_shape(concat_shape_arrays(border1, border2))
-    final2 = convert_points_to_shape(concat_shape_arrays(border2, border1))
-
-    # print results
-    print_results(shape1, shape2, final1)
-    print_results(shape2, shape1, final2)
+    return convert_points_to_shape(concat_shape_arrays(border1, border2))
