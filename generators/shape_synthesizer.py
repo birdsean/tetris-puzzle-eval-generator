@@ -37,7 +37,7 @@ def get_max_x_y(coords):
         max_y = max(max_y, coord[0])
     return (max_x, max_y)
 
-def concat_shape_arrays(shape1, shape2):
+def concat_shape_arrays(shape1, shape2 , first_shape_char, second_shape_char):
     # find the max x and y of the first shape
     max_x, max_y = get_max_x_y(shape1)
 
@@ -57,13 +57,18 @@ def concat_shape_arrays(shape1, shape2):
 
     # fill in the first shape
     for coord in shape1:
-        final_shape[coord[0]][coord[1]] = 'X'
+        final_shape[coord[0]][coord[1]] = first_shape_char
 
     # fill in the second shape
     for coord in shape2:
-        final_shape[coord[0]][coord[1]] = 'X'
+        final_shape[coord[0]][coord[1]] = second_shape_char
 
     return final_shape
+
+def find_char_value(shape: str):
+    for char in shape:
+        if char != ' ':
+            return char
 
 def generate_shape_combinations(shape1, shape2):
     # CONVERT shape1 into 2d array
@@ -73,4 +78,8 @@ def generate_shape_combinations(shape1, shape2):
     border1 = get_border_points(coord_shape)
     border2 = get_border_points(coord_shape2)
 
-    return convert_points_to_shape(concat_shape_arrays(border1, border2))
+    # find the first char value that is not a space in shape1
+    first_shape_char = find_char_value(shape1)
+    second_shape_char = find_char_value(shape2)
+
+    return convert_points_to_shape(concat_shape_arrays(border1, border2, first_shape_char, second_shape_char))
