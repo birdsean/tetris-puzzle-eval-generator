@@ -77,13 +77,6 @@ def print_results(shape1, shape2, final):
     print("***********************")
 
 def generate_shape_combinations(shape1, shape2):
-    shape1 = shapes[random.randint(0, len(shapes) - 1)]
-
-    # pick a second shape that is not the same as the first
-    shape2 = shape1
-    while shape2 == shape1:
-        shape2 = shapes[random.randint(0, len(shapes) - 1)]
-
     # CONVERT shape1 into 2d array
     coord_shape = convert_shape_to_2d_array(shape1)
     coord_shape2 = convert_shape_to_2d_array(shape2)
