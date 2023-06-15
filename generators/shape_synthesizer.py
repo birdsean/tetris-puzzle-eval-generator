@@ -92,4 +92,5 @@ def generate_shape_combinations(shape1, shape2, should_shift_x):
     first_shape_char = find_char_value(shape1)
     second_shape_char = find_char_value(shape2)
 
-    return convert_points_to_shape(concat_shape_arrays(border1, border2, first_shape_char, second_shape_char, should_shift_x))
+    final_shape = convert_points_to_shape(concat_shape_arrays(border1, border2, first_shape_char, second_shape_char, should_shift_x))
+    return final_shape.rstrip()
