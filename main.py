@@ -43,9 +43,10 @@ for pair in shape_pairs:
             {"role": "system", "content": "Arrange the two shapes you'll be given to match the desired final shape."}, 
             {"role": "user", "content": prompt}
         ], 
-        "ideal": answer_shape
+        "ideal": f'Answer:\n{answer_shape}'
     }
     print(prompt)
+    print()
     print(answer_shape)
     print('=======================')
     prompts.append(formatted_prompt)

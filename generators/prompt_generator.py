@@ -43,4 +43,9 @@ Please create:
 
 {goal}
 
-Replacing the 'X's with the corresponding letter of the shape that should occupy each position. Only respond with the final shape, no commentary.'''
+Replacing the 'X's with the corresponding letter of the shape that should occupy each position. Please reason step by step before answering, and provide your final answer at the end, prefixed with 'Answer:' and a new line. For example: 
+
+Answer:
+ AB
+AABB
+A  B'''
